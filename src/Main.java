@@ -14,9 +14,8 @@ public class Main {
     public static void task1 () {
         System.out.println("Задача 1");
         int salary = 15_000;
-        int target = 2_935_000;
+        int target = 2_459_000;
         int cashSaving = 0;
-//        boolean purposeSaving = (cashSaving >= target && (target - cashSaving) < salary);
         while ((target - cashSaving) > 0) {
         cashSaving = cashSaving + salary;
             System.out.println("Месяц " + cashSaving / salary + ", сумма накоплений равна: " + cashSaving);
@@ -63,10 +62,8 @@ public class Main {
         int loanInterest = 7;
         int cashWithoutInterest = 0;
         int cashSavingTotal = 0;
- //       int month = 0;
-        for (int month = 0; cashSavingTotal <= target; month++) {
+        for (int month = 1; cashSavingTotal <= target; month++) {
             if (month == 1) {
-                // В первый месяц в банк деньги не внесены ещё, поэтому процент по депозиту начислять не с чего
                 cashWithoutInterest = cashWithoutInterest + salary;
                 cashSavingTotal = cashSavingTotal + cashWithoutInterest;
                 System.out.println("Месяц " + month + ", сумма накоплений: " + cashSavingTotal);
@@ -85,17 +82,13 @@ public class Main {
         int loanInterest = 7;
         int cashWithoutInterest = 0;
         int cashSavingTotal = 0;
-        for (int month = 0; cashSavingTotal <= target; month++) {
+        for (int month = 1; cashSavingTotal <= target; month++) {
             if (month == 1) {
                 cashWithoutInterest = cashWithoutInterest + salary;
                 cashSavingTotal = cashSavingTotal + cashWithoutInterest;
-//                System.out.println("Месяц " + month + ", сумма накоплений: " + cashSavingTotal);
             } else if (month > 1) {
                 cashWithoutInterest = cashWithoutInterest + salary;
                 cashSavingTotal = cashSavingTotal + salary + cashWithoutInterest * loanInterest / 100 / 12;
- //               if (month % 6 == 0) {
- //               System.out.println("Месяц " + month + ", сумма накоплений: " + cashSavingTotal);
- //           }
             } if (month % 6 == 0 && month != 0) {
                 System.out.println("Месяц " + month + ", сумма накоплений: " + cashSavingTotal);
             }
@@ -164,8 +157,7 @@ public class Main {
         short periodAfter = 100;
         int cometDate = 0;
         for (; cometDate <= thisYear + periodAfter; cometDate = cometDate + 79) {
-            boolean dataOutputPeriod = cometDate >= (thisYear - periodBefore) || cometDate >= (thisYear + periodAfter);
-            if (dataOutputPeriod) {
+            if (cometDate >= (thisYear - periodBefore)) {
                 System.out.println(cometDate);
             }
         }
